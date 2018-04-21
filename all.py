@@ -51,7 +51,7 @@ id1=[]#id постов для выгрузки комментариев
 for i in range(200):
     te=data['response']['items'][i]['id']
     id1.append(te)
-print(len(id1))
+
 
 
 
@@ -104,7 +104,7 @@ for i in comid:
 users=[] #пользователи, написавшие посты id
 for i in range(200):
     users.append(data['response']['items'][i]['from_id'])
-print(users)
+
 
 
 i=0 #пост может быть написан группой, поэтому удаляем комментарии группы 
@@ -140,8 +140,6 @@ for i in range(len(posts)):
     except: pass         
 for i in age_dict:
     age_dict[i] = numpy.mean(age_dict[i])
-print(age_dict)
-
 plt.ylabel('Средняя длина поста')
 plt.xlabel('Возраст')
 plt.scatter(list(age_dict.keys()), list(age_dict.values()))
@@ -161,7 +159,6 @@ for i in range(len(posts)):
 for i in city_dict:
     city_dict[i] = numpy.mean(city_dict[i])
 plt.bar(range(len(city_dict.keys())), city_dict.values())
-
 plt.ylabel('Средняя длина поста')
 plt.xlabel('Город')
 plt.xticks(range(len(city_dict.keys())), city_dict.keys(), rotation=90)
@@ -182,9 +179,6 @@ for i in range(len(com)):
 for i in city_dict_com:
     city_dict_com[i] = numpy.mean(city_dict_com[i])
 plt.bar(range(len(city_dict_com.keys())), city_dict_com.values())
-
-
-print(city_dict_com)
 plt.ylabel('Средняя длина комментария')
 plt.xlabel('Город')
 plt.xticks(range(len(city_dict_com.keys())), city_dict_com.keys(), rotation=90)
@@ -205,9 +199,6 @@ for i in range(len(posts)):
     except: pass
 for i in age_dict_com:
     age_dict_com[i] = numpy.mean(age_dict_com[i])
-print(age_dict_com)
-          
-
 plt.ylabel('Средняя длина комментария')
 plt.xlabel('Возраст')
 plt.scatter(list(age_dict_com.keys()), list(age_dict_com.values()))
